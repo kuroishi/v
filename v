@@ -28,7 +28,7 @@ done
 shift $((OPTIND - 1))
 
 FINDPATH=${1:-.}
-FILE=$(find "${FINDPATH}"/ -type f | peco)
+FILE=$(find -L "${FINDPATH}" -type f | peco)
 if [ -z "${CMD}" ]; then
     file "${FILE}" | grep text > /dev/null 2>&1
     if [ $? != 0 ]; then
