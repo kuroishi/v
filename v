@@ -29,6 +29,9 @@ shift $((OPTIND - 1))
 
 FINDPATH=${1:-.}
 FILE=$(find -L "${FINDPATH}" -type f | peco)
+if [ -z "${FILE}" ]; then
+    exit 1
+fi
 if [ -z "${CMD}" ]; then
     file "${FILE}" | grep text > /dev/null 2>&1
     if [ $? != 0 ]; then
@@ -37,6 +40,5 @@ if [ -z "${CMD}" ]; then
         CMD=${VTXTCMD}
     fi
 fi
-
 #set -x
 ${CMD} "${FILE}"
