@@ -2,10 +2,11 @@
 
 usage() {
     echo "Usage:" 1>&2
-    echo "    $0 [-e command] [path]" 1>&2
+    echo "    $0 [-h] [-e command] [path]" 1>&2
     echo ""
     echo "    e.g." 1>&2
     echo "        $0 -e \"cat -n\" /var/tmp" 1>&2
+    echo "        $0 -e \"hexdump -Cv\" /bin" 1>&2
     echo ""
     echo "ENVIRONMENT" 1>&2
     echo "    VBINCMD=\"/usr/bin/open\"" 1>&2
