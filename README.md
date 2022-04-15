@@ -1,7 +1,7 @@
 # v
 file selectable viewer luncher using peco.
 
-##Thanks to 
+## Thanks to 
 peco
 ref.
 https://github.com/peco/peco
