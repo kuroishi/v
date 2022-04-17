@@ -27,8 +27,14 @@ while getopts e:h flag; do
 done
 shift $((OPTIND - 1))
 
-FINDPATH=${1:-.}
-FILE=$(find -L "${FINDPATH}" -type f | peco)
+FILE=""
+if [ -p /dev/stdin ]; then
+    FILE=$(cat | peco)
+else
+    FINDPATH=${1:-.}
+    FILE=$(find -L "${FINDPATH}" -type f | peco)
+fi
+
 if [ -z "${FILE}" ]; then
     exit 1
 fi
